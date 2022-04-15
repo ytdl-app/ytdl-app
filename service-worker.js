@@ -1,12 +1,1 @@
-self.addEventListener('fetch', function(event) {
-    event.respondWith(async function() {
-        try {
-            var res = await fetch(event.request);
-            var cache = await caches.open('cache');
-            cache.put(event.request.url, res.clone());
-            return res;
-        } catch (error) {
-            return caches.match(event.request);
-        }
-    }());
-});
+self.addEventListener("fetch",function(s){s.respondWith(async function(){try{const a=await fetch(s.request),p=new Headers(a.headers);return p.set("Cross-Origin-Embedder-Policy","require-corp"),p.set("Cross-Origin-Opener-Policy","same-origin"),p.set("Access-Control-Allow-Origin","*"),p.set("Access-Control-Allow-Methods","GET, PUT, PATCH, POST, DELETE"),new Response(a.body,{status:a.status,statusText:a.statusText,headers:p})}catch(s){console.log(s)}}())}),self.addEventListener("install",function(s){s.waitUntil(async function(){try{return(await caches.open("cache")).addAll(["/index.html","/404.html","/official-websites.html","/css/page.css","/js/preference.js","/js/404.js","/css/style.css","/js/ytdl.js","/manifest.json","https://styles.redditmedia.com/t5_3fv7b/styles/communityIcon_f8tmsvtp9vv41.png","/assets/apple-splash-dark-2048-2732.jpg","/assets/apple-splash-dark-2732-2048.jpg","/assets/apple-splash-dark-1668-2388.jpg","/assets/apple-splash-dark-2388-1668.jpg","/assets/apple-splash-dark-1536-2048.jpg","/assets/apple-splash-dark-2048-1536.jpg","/assets/apple-splash-dark-1668-2224.jpg","/assets/apple-splash-dark-2224-1668.jpg","/assets/apple-splash-dark-1620-2160.jpg","/assets/apple-splash-dark-2160-1620.jpg","/assets/apple-splash-dark-1284-2778.jpg","/assets/apple-splash-dark-2778-1284.jpg","/assets/apple-splash-dark-1170-2532.jpg","/assets/apple-splash-dark-2532-1170.jpg","/assets/apple-splash-dark-1125-2436.jpg","/assets/apple-splash-dark-2436-1125.jpg","/assets/apple-splash-dark-1242-2688.jpg","/assets/apple-splash-dark-2688-1242.jpg","/assets/apple-splash-dark-828-1792.jpg","/assets/apple-splash-dark-1792-828.jpg","/assets/apple-splash-dark-1242-2208.jpg","/assets/apple-splash-dark-2208-1242.jpg","/assets/apple-splash-dark-750-1334.jpg","/assets/apple-splash-dark-1334-750.jpg","/assets/apple-splash-dark-640-1136.jpg","/assets/apple-splash-dark-1136-640.jpg","/js/script.js","https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.10.0/dist/ffmpeg-core.min.js","/js/main.js"])}catch(s){console.log(s)}}())});

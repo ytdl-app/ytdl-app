@@ -1,0 +1,1 @@
+"serviceWorker"in navigator&&navigator.serviceWorker.register("./service-worker.js").then(function(r){r.active&&!navigator.serviceWorker.controller&&window.location.reload()},function(r){console.log(r)});
